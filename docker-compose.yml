@@ -1,0 +1,11 @@
+services:
+  #Nextjs
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/container-frontend:delegated
+      - /container-frontend/node_modules
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
