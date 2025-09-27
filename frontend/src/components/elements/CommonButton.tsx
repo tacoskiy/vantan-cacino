@@ -10,7 +10,7 @@ interface CommonButtonProps{
 
 const CommonButton = ({ children, color, invert = false, onClick }:CommonButtonProps) => {
   return (
-    <button className={clsx("w-full h-auto p-4 rounded-full")} style={{backgroundColor: `var(--color-${color})`}}>
+    <button className={clsx("w-full h-auto p-4 rounded-2xl", color)}>
       {children}
     </button>
   );

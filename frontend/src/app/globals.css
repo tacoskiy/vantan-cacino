@@ -18,7 +18,7 @@
 body {
   background: var(--color-bg-base);
   color: var(--color-text-invert);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto-serif-jp), serif;
 }
 
 .noise{
@@ -28,16 +28,30 @@ body {
 }
 
 .betting-grid{
-  @apply w-full aspect-square h-auto rounded-2xl;
-  box-shadow:
-    inset 4px 4px 12px #0000009a,
-    inset -4px -4px 12px #ffffff10;
+  @apply w-full aspect-square h-auto rounded-[12px];
 }
 
 .grid-red{
   @apply bg-grid-red;
+  box-shadow:
+    inset 4px 4px 8px #00000033,
+    inset -4px -4px 8px #ffffff1C;
 }
 
 .grid-black{
   @apply bg-grid-black;
+  box-shadow:
+    inset 4px 4px 8px #00000033,
+    inset -4px -4px 8px #ffffff0D;
+}
+
+.betting-container{
+  box-shadow:
+    12px 12px 24px #00000033,
+    -12px -12px 24px #ffffff1C;
+}
+
+.floating-shadow{
+  box-shadow:
+    0 0 48px #EE8412CC;
 }

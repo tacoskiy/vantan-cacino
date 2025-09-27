@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import CommonButton from "@/components/elements/CommonButton";
 import BettingContainer from "@/components/layouts/BettingContainer";
 import FloatingContainer from "@/components/layouts/FloatingContainer";
@@ -8,9 +10,12 @@ const BettingPage = () => {
     <>
       <NoiseLayer/>
       <FloatingContainer>
-        <CommonButton color="primary" onClick={() => {}}>ボタン</CommonButton>
+        <CommonButton color="bg-primary shadow-xl floating-shadow" onClick={() => {}}><p className="font-bold text-lg">ベットする</p></CommonButton>
       </FloatingContainer>
-      <main className="px-4 py-12">
+      <main className="px-4 py-16">
+        <div className="w-full flex items-center justify-center p-8">
+          <Image src={"/img/logo.svg"} width={110} height={100} alt="cacino"/>
+        </div>
         <BettingContainer/>
       </main>
     </>
