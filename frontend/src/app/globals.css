@@ -51,7 +51,8 @@ body {
     -12px -12px 24px #ffffff1C;
 }
 
-.floating-shadow{
+.floating-glow{
+  border: 2px solid #FFFFFF3D;
   box-shadow:
     0 0 48px #EE8412CC;
 }

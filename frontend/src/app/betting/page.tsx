@@ -10,10 +10,10 @@ const BettingPage = () => {
     <>
       <NoiseLayer/>
       <FloatingContainer>
-        <CommonButton color="bg-primary shadow-xl floating-shadow" onClick={() => {}}><p className="font-bold text-lg">ベットする</p></CommonButton>
+        <CommonButton color="bg-primary shadow-xl floating-glow" onClick={() => {}}><p className="font-bold text-lg">ベットする</p></CommonButton>
       </FloatingContainer>
-      <main className="px-4 py-16">
-        <div className="w-full flex items-center justify-center p-8">
+      <main className="px-4 py-12">
+        <div className="w-full flex items-center justify-center p-12">
           <Image src={"/img/logo.svg"} width={110} height={100} alt="cacino"/>
         </div>
         <BettingContainer/>
