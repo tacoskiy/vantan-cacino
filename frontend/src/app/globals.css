@@ -6,21 +6,53 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-bg-base: #1C5529;
+  --color-bg-modal: #E8E8E8;
+  --color-primary: #EE8412;
+  --color-text-primary: #0D0D0D;
+  --color-text-invert: #E8E8E8;
+  --color-grid-red: #BD2323;
+  --color-grid-black: #212121;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-base);
+  color: var(--color-text-invert);
+  font-family: var(--font-noto-serif-jp), serif;
+}
+
+.noise{
+  background: url("/util/noise.png");
+  background-repeat: repeat;
+  background-size: 100px;
+}
+
+.betting-grid{
+  @apply w-full aspect-square h-auto rounded-[12px];
+}
+
+.grid-red{
+  @apply bg-grid-red;
+  box-shadow:
+    inset 4px 4px 8px #00000033,
+    inset -4px -4px 8px #ffffff1C;
+}
+
+.grid-black{
+  @apply bg-grid-black;
+  box-shadow:
+    inset 4px 4px 8px #00000033,
+    inset -4px -4px 8px #ffffff0D;
+}
+
+.betting-container{
+  box-shadow:
+    12px 12px 24px #00000033,
+    -12px -12px 24px #ffffff1C;
+}
+
+.floating-glow{
+  border: 2px solid #FFFFFF3D;
+  box-shadow:
+    0 0 48px #EE8412CC;
 }
