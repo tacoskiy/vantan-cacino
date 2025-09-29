@@ -6,12 +6,14 @@
 }
 
 @theme inline {
-  --color-bg-base: #1C5529;
-  --color-bg-modal: #E8E8E8;
-  --color-primary: #EE8412;
-  --color-text-primary: #0D0D0D;
-  --color-text-invert: #E8E8E8;
-  --color-grid-red: #BD2323;
+  --color-bg-base: #1c5529;
+  --color-bg-modal: #e8e8e8;
+  --color-primary: #ee8412;
+  --color-secondary: #FFC689;
+  --color-text-primary: #0d0d0d;
+  --color-text-invert: #e8e8e8;
+  --color-text-secondary: #cccccc;
+  --color-grid-red: #bd2323;
   --color-grid-black: #212121;
 }
 
@@ -21,38 +23,73 @@ body {
   font-family: var(--font-noto-serif-jp), serif;
 }
 
-.noise{
+.noise {
   background: url("/util/noise.png");
   background-repeat: repeat;
   background-size: 100px;
 }
 
-.betting-grid{
-  @apply w-full aspect-square h-auto rounded-[12px];
+.betting-grid {
+  @apply w-full aspect-square h-auto rounded-[12px] relative;
 }
 
-.grid-red{
+.betting-grid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 2px solid var(--color-secondary);
+  box-shadow: inset 0px 0px 48px var(--color-primary);
+  opacity: 0;
+  transition: all 300ms;
+  transform: scale(1.2) translateY(-12px);
+  filter: blur(12px);
+}
+
+.grid-selected.betting-grid::after {
+  opacity: 1;
+  transform: scale(1) translateY(0px);
+  filter: blur(0px);
+}
+
+.grid-red {
   @apply bg-grid-red;
-  box-shadow:
-    inset 4px 4px 8px #00000033,
-    inset -4px -4px 8px #ffffff1C;
+  box-shadow: inset 4px 4px 8px #00000033, inset -4px -4px 8px #ffffff1c;
 }
 
-.grid-black{
+.grid-black {
   @apply bg-grid-black;
-  box-shadow:
-    inset 4px 4px 8px #00000033,
-    inset -4px -4px 8px #ffffff0D;
+  box-shadow: inset 4px 4px 8px #00000033, inset -4px -4px 8px #ffffff0d;
 }
 
-.betting-container{
-  box-shadow:
-    12px 12px 24px #00000033,
-    -12px -12px 24px #ffffff1C;
+.betting-container {
+  box-shadow: 12px 12px 24px #00000033, -12px -12px 24px #ffffff1c;
 }
 
-.floating-glow{
-  border: 2px solid #FFFFFF3D;
-  box-shadow:
-    0 0 48px #EE8412CC;
+.floating-glow {
+  border: 2px solid #ffffff3d;
+  box-shadow: 0 0 48px #ee8412cc;
+}
+
+.bottomsheet-grabber {
+  position: relative;
+  /* border-bottom: 2px solid var(--color-text-secondary); */
+}
+
+.bottomsheet-grabber::after {
+  content: "";
+  @apply -translate-1/2 absolute top-1/2 left-1/2 w-12 h-1 bg-text-secondary rounded-full;
+}
+
+.no-drag {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+.overflow-scroll-smooth{
+  -webkit-overflow-scrolling: touch;
 }

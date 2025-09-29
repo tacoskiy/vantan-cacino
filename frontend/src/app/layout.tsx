@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 
+import Header from "@/components/layouts/Header";
+
+import { BottomSheetProvider } from "@/contexts/BottomSheetContext";
+import { BettingGridProvider } from "@/contexts/BettingGridContext";
+
 // Noto Serif JP を読み込み
 const notoSerifJP = Noto_Serif_JP({
   variable: "--font-noto-serif-jp",
@@ -23,7 +28,12 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${notoSerifJP.variable} antialiased`}>
-        {children}
+        <BettingGridProvider>
+          <BottomSheetProvider>
+            <Header/>
+            {children}
+          </BottomSheetProvider>
+        </BettingGridProvider>
       </body>
     </html>
   );
