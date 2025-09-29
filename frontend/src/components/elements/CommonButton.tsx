@@ -10,7 +10,7 @@ interface CommonButtonProps{
 
 const CommonButton = ({ children, color, invert = false, onClick }:CommonButtonProps) => {
   return (
-    <button className={clsx("w-full h-auto p-4 rounded-2xl active:brightness-90 transition-all duration-300 pointer-events-auto", color)}>
+    <button onClick={onClick} className={clsx("w-full h-auto p-4 rounded-2xl active:brightness-90 transition-all duration-300 pointer-events-auto", color)}>
       {children}
     </button>
   );
