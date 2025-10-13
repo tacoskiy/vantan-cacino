@@ -9,3 +9,20 @@ services:
       - "3000:3000"
     env_file:
       - .env
+
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/workdir
+    ports:
+      - 8008:8000
+
+  db:
+    image: mysql:8.3
+    volumes:
+      - ./backend/laravel_app/mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: dev
+    ports:
+      - 3308:3306
